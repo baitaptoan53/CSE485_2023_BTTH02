@@ -1,40 +1,27 @@
 <?php
 class AuthorController
 {
-                   public function __construct()
-                   {
-                                      require_once('../configs/BDConnection.php');
-                                      require_once('../models/Author.php');
-                   }
                    public function index()
                    {
-                                      // lấy dữ liệu từ model
-                                      $author = new Author();
-                                      $authors = $author->getAll();
-                                      // gọi view
-                                      require_once('../views/author/index.php');
+                                      $authorService = new AuthorService();
+                                      $authors = $authorService->getAllAuthor();
+                                      include_once("views/author/index_author.php");
                    }
-                   public function store()
+                   public function create()
                    {
-                                      $author = new Author();
-                                      $author->setMa_tgia($_POST['ma_tgia']);
-                                      $author->setTen_tgia($_POST['ten_tgia']);
-                                      $author->setHinh_tgia($_POST['hinh_tgia']);
-                                      $author->store();
-                                      header('Location: index.php?controller=author&action=index');
-                   }
-                   public function delete()
-                   {
-                                      $author = new Author();
-                                      $author->setMa_tgia($_GET['ma_tgia']);
-                                      $author->delete();
-                                      header('Location: index.php?controller=author&action=index');
+                                      include_once("views/author/add_author.php");
                    }
                    public function edit()
                    {
-                                      $author = new Author();
-                                      $author->setMa_tgia($_GET['ma_tgia']);
-                                      $author->edit();
-                                      header('Location: index.php?controller=author&action=index');
+                                      $authorService = new AuthorService();
+                                      $author = $authorService->editAuthor($_GET['ma_tgia'], $_GET['ten_tgia'], $_GET['hinh_anh']);
+                                      include_once("views/author/edit_author.php");
                    }
+                   public function delete()
+                   {
+                                      $authorService = new AuthorService();
+                                      $authorService->deleteAuthor($_GET['ma_tgia']);
+                                      header("Location: index.php?controller=author&action=index");
+                   }
+
 }

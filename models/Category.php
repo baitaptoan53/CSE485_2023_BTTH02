@@ -3,10 +3,8 @@ class Category
 {
                    private $ma_tloai;
                    private $ten_tloai;
-                   public function __construct()
+                   public function __construct($ma_tloai, $ten_tloai)
                    {
-                                      require('../configs/BDConnection.php');
-                                      require('../models/Category.php');
                                       $this->ma_tloai = $ma_tloai;
                                       $this->ten_tloai = $ten_tloai;
                    }

@@ -24,5 +24,22 @@ class CategoryService{
                                       $stmt->bindParam(':ten_tloai', $ten_tloai);
                                       $stmt->execute();
                    }
+                   public function deleteCategory($ma_tloai){
+                                      $dbConn = new DBConnection();
+                                      $conn = $dbConn->getConnection();
+                                      $sql = "DELETE FROM theloai WHERE ma_tloai = :ma_tloai";
+                                      $stmt = $conn->prepare($sql);
+                                      $stmt->bindParam(':ma_tloai', $ma_tloai);
+                                      $stmt->execute();
+                   }
+                   public function editCategory($ma_tloai, $ten_tloai){
+                                      $dbConn = new DBConnection();
+                                      $conn = $dbConn->getConnection();
+                                      $sql = "UPDATE theloai SET ten_tloai = :ten_tloai WHERE ma_tloai = :ma_tloai";
+                                      $stmt = $conn->prepare($sql);
+                                      $stmt->bindParam(':ma_tloai', $ma_tloai);
+                                      $stmt->bindParam(':ten_tloai', $ten_tloai);
+                                      $stmt->execute();
+                   }
 }
 ?>
