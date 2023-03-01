@@ -21,7 +21,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Tên tác giả</th>
-                                       <th scope="col">Hình ảnh</th>
+                            <th scope="col">Hình ảnh</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
                         </tr>

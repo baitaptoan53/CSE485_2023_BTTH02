@@ -6,8 +6,8 @@ class Author
                    private $hinh_tgia;
                    public function __construct()
                    {
-                                      require_once('../configs/BDConnection.php');
-                                      require_once('../models/Author.php');
+                                      require('../configs/BDConnection.php');
+                                      require('../models/Author.php');
                                       $this->ma_tgia = $ma_tgia;
                                       $this->ten_tgia = $ten_tgia;
                                       $this->hinh_tgia = $hinh_tgia;

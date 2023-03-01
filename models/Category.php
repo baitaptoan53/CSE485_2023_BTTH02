@@ -5,8 +5,8 @@ class Category
                    private $ten_tloai;
                    public function __construct()
                    {
-                                      require_once('../configs/BDConnection.php');
-                                      require_once('../models/Category.php');
+                                      require('../configs/BDConnection.php');
+                                      require('../models/Category.php');
                                       $this->ma_tloai = $ma_tloai;
                                       $this->ten_tloai = $ten_tloai;
                    }
