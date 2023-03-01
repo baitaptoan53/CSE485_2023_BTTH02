@@ -4,7 +4,7 @@ class Author
                    private $ma_tgia;
                    private $ten_tgia;
                    private $hinh_tgia;
-                   public function __construct($ma_tgia, $ten_tgia, $hinh_tgia)
+                   public function __construct()
                    {
                                       require_once('../configs/BDConnection.php');
                                       require_once('../models/Author.php');
@@ -43,7 +43,36 @@ class Author
                                       $con = new DBConnection();
                                       $sql       = "SELECT * FROM tacgia";
                                       $statement = $con->getConnection()->prepare($sql);
-                                      $statement->setFetchMode(PDO::FETCH_OBJ); 
+                                      $statement->setFetchMode(PDO::FETCH_OBJ);
                                       $members = $statement->fetchAll();
+                   }
+                   public function store()
+                   {
+                                      $con = new DBConnection();
+                                      $sql = "INSERT INTO tacgia (ma_tgia, ten_tgia, hinh_tgia) VALUES (:ma_tgia, :ten_tgia, :hinh_tgia)";
+                                      $statement = $con->getConnection()->prepare($sql);
+                                      $statement->bindParam(':ma_tgia', $this->ma_tgia);
+                                      $statement->bindParam(':ten_tgia', $this->ten_tgia);
+                                      $statement->bindParam(':hinh_tgia', $this->hinh_tgia);
+                                      $statement->execute();
+                   }
+                   public function delete()
+                   {
+                                      $con = new DBConnection();
+                                      $sql = "DELETE FROM tacgia WHERE ma_tgia = :ma_tgia";
+                                      $statement = $con->getConnection()->prepare($sql);
+                                      $statement->bindParam(':ma_tgia', $this->ma_tgia);
+                                      $statement->execute();
+                   }
+                   public function edit()
+                   {
+                                      $con = new DBConnection();
+                                      $sql = "SELECT * FROM tacgia WHERE ma_tgia = :ma_tgia";
+                                      $statement = $con->getConnection()->prepare($sql);
+                                      $statement->bindParam(':ma_tgia', $this->ma_tgia);
+                                      $statement->execute();
+                                      $statement->setFetchMode(PDO::FETCH_OBJ);
+                                      $member = $statement->fetch();
+                                      return $member;
                    }
 }
