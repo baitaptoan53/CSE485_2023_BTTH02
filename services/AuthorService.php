@@ -1,6 +1,6 @@
 <?php
-include ("/configs/BDConnection.php");
-include ("/models/Author.php");
+require_once ("../configs/BDConnection.php");
+require ("../models/Author.php");
 class AuthorService{
                    public function getAllAuthor()
                    {

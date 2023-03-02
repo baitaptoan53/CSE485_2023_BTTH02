@@ -1,6 +1,7 @@
 <?php
-include ("/configs/BDConnection.php");	
-include  ("/models/Category.php");
+
+require_once ('../controllers/AuthorController.php');	
+require  ('../models/Category.php');
 class CategoryService{
                    public function getAllCategory(){
                                       $dbConn = new DBConnection();
