@@ -1,21 +1,22 @@
 <?php
+require ('services/CategoryService.php');
 class CategoryController
 {
                    public function index()
                    {
                                       $categoryService = new CategoryService();
                                       $categories = $categoryService->getAllCategory();
-                                      include_once("views/category/index_category.php");
+                                      require("views/category/index_category.php");
                    }
                    public function create()
                    {
-                                      include_once("views/category/create_category.php");
+                                      require("views/category/create_category.php");
                    }
                    public function edit()
                    {
                                       $categoryService = new CategoryService();
                                       $category = $categoryService->editCategory($_GET['ma_loai'], $_GET['ten_loai']);
-                                      include_once("views/category/edit_category.php");
+                                      require("views/category/edit_category.php");
                    }
                    public function delete()
                    {

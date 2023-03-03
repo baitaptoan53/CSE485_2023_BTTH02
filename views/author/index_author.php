@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<?php include_once('../layouts/header.php');?>
+<?php include_once('layouts/header.php');?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
@@ -27,17 +27,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($members as $member): ?>
+                        <?php foreach ($authors as $author): ?>
                         <tr>
-                            <th scope="row"><?php echo $member['ma_tgia'] ?></th>
-                            <td><?php echo $member['ten_tgia'] ?></td>
-                            <?php if ($member['hinh_tgia'] == ''): ?>
-                            <td><img src="../images/author/default.jpg" alt="" width="100px"></td>
-                            <?php else: ?>
-                            <td><img src="images/author/<?php echo $member['hinh_tgia'] ?>" alt="" width="100px"></td>
-                            <?php endif; ?>
-                            <td><a href="edit_author.php?id=<?php echo $member['ma_tgia'] ?>&ten_tgia=<?php echo $member['ten_tgia'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
-                            <td><a href="delete_author.php?id=<?php echo $member['ma_tgia'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <td><?php echo $author->getMa_tgia()?></td>
+                            <td><?php echo $author->getTen_tgia()?></td>
+                            <td><img src="images/<?php echo $author->getHinh_tgia()?>" alt="" width="100px"></td>
+                            <td><a href="edit_author.php?id=<?php echo $author->getMa_tgia()?>" class="btn btn-primary">Sửa</a></td>
+                            <td><a href="delete_author.php?id=<?php echo $author->getMa_tgia()?>" class="btn btn-danger">Xóa</a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -45,7 +41,7 @@
             </div>
         </div>
     </main>
-    <?php include_once('../layouts/footer.php');?>
+    <?php include_once('layouts/footer.php');?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
