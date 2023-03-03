@@ -10,7 +10,7 @@ class AuthorController
                    }
                    public function create()
                    {
-                                      require("views/author/add_author.php");
+                                      require("views/author/create_author.php");
                    }
                    public function edit()
                    {

@@ -1,5 +1,5 @@
 <?php
-require_once("configs/BDConnection.php");
+require_once("configs/DBConnection.php");
 require("models/Author.php");
 class AuthorService
 {
@@ -13,11 +13,8 @@ class AuthorService
                                       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                       $authors = [];
                                       foreach ($result as $row) {
-                                                     $author = new Author();
-                                                     $author->setMa_tgia($row['ma_tgia']);
-                                                     $author->setTen_tgia($row['ten_tgia']);
-                                                     $author->setHinh_tgia($row['hinh_tgia']);
-                                                     $authors[] = $author;
+                                                         $author = new Author($row['ma_tgia'], $row['ten_tgia'], $row['hinh_tgia']);
+                                                         array_push($authors, $author);
                                       }
                                       return $authors;
                    }

@@ -15,7 +15,7 @@
                    <main class="container mt-5 mb-5">
                                       <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
 
-                                      <form action="add_author.php" method="POST">
+                                      <form action="?action=store" method="POST">
                                                          <div class="row">
                                                                             <div class="col-sm">
                                                                                                <h3 class="text-center text-uppercase fw-bold">Thêm tác giả mới</h3>
