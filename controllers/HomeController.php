@@ -1,13 +1,8 @@
-<?php
-// require ("services/CategoryService.php");
-// require ("services/AuthorService.php");
-class HomeController {
-                   public function index()
-                   {
-                                      // $categoryService = new CategoryService();
-                                      // $categories = $categoryService->getAllCategory();
-                                      // $authorService = new AuthorService();
-                                      // $authors = $authorService->getAllAuthor();
-                                      require('views/home/index.php');
-                   }
-}
+<?php 
+    class HomeController{
+        public function index(){
+            require_once("./services/HomeService.php");
+            require_once("./views/home/index_home.php");
+        }
+    }
+?>
