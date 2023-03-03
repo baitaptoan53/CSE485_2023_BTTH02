@@ -127,8 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ngayviet = $_POST['ngayviet'];
         $hinhanh = $_POST['hinhanh'];
         $article->update($tieude, $ten_bhat, $ma_tloai, $tomtat, $noidung, $ma_tgia, $ngayviet, $hinhanh, $ma_bviet);
-        // $article->add($tieude, $ten_bhat, $ma_tloai, $tomtat, $noidung, $ma_tgia, $ngayviet, $hinhanh);
-    }else if(!isset($_POST['ma_bviet'])&&isset($_POST['tieude'])&&isset($_POST['ten_bhat'])&&isset($_POST['ma_tloai'])&&isset($_POST['tomtat'])&&isset($_POST['noidung'])&&isset($_POST['ma_tgia'])&&isset($_POST['ngayviet'])&&isset($_POST['hinhanh'])){
+    }
+    else if(!isset($_POST['ma_bviet'])&&isset($_POST['tieude'])&&isset($_POST['ten_bhat'])&&isset($_POST['ma_tloai'])&&isset($_POST['tomtat'])&&isset($_POST['noidung'])&&isset($_POST['ma_tgia'])&&isset($_POST['ngayviet'])&&isset($_POST['hinhanh'])){
         $tieude = $_POST['tieude'];
         $ten_bhat = $_POST['ten_bhat'];
         $ma_tloai = $_POST['ma_tloai'];
