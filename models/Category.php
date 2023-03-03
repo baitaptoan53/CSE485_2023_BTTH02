@@ -1,4 +1,5 @@
 <?php
+
 class Category
 {
                    private $ma_tloai;

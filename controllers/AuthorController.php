@@ -1,16 +1,16 @@
 <?php
-require ("../services/AuthorService.php");
+require("services/AuthorService.php");
 class AuthorController
 {
                    public function index()
                    {
                                       $authorService = new AuthorService();
                                       $authors = $authorService->getAllAuthor();
-                                      require("../views/author/index_author.php");
+                                      require("views/author/index_author.php");
                    }
                    public function create()
                    {
-                                      require("../views/author/add_author.php");
+                                      require("views/author/add_author.php");
                    }
                    public function edit()
                    {

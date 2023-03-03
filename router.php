@@ -20,7 +20,7 @@ switch ($controller) {
                    case 'home':
                                       switch ($action) {
                                                          case 'index':
-                                                                            require_once('controllers/HomeController.php');
+                                                                            require('controllers/HomeController.php');
                                                                             $controller = new HomeController();
                                                                             $controller->index();
                                                                             break;
@@ -29,22 +29,22 @@ switch ($controller) {
                    case 'category':
                                       switch ($action) {
                                                          case 'index':
-                                                                            require_once('controllers/CategoryController.php');
+                                                                            require('controllers/CategoryController.php');
                                                                             $controller = new CategoryController();
                                                                             $controller->index();
                                                                             break;
                                                          case 'create':
-                                                                            require_once('controllers/CategoryController.php');
+                                                                            require('controllers/CategoryController.php');
                                                                             $controller = new CategoryController();
                                                                             $controller->create();
                                                                             break;
                                                          case 'edit':
-                                                                            require_once('controllers/CategoryController.php');
+                                                                            require('controllers/CategoryController.php');
                                                                             $controller = new CategoryController();
                                                                             $controller->edit();
                                                                             break;
                                                          case 'delete':
-                                                                            require_once('controllers/CategoryController.php');
+                                                                            require('controllers/CategoryController.php');
                                                                             $controller = new CategoryController();
                                                                             $controller->delete();
                                                                             break;
@@ -52,22 +52,22 @@ switch ($controller) {
                    case 'author':
                                       switch ($action) {
                                                          case 'index':
-                                                                            require_once('controllers/AuthorController.php');
+                                                                            require('controllers/AuthorController.php');
                                                                             $controller = new AuthorController();
                                                                             $controller->index();
                                                                             break;
                                                          case 'create':
-                                                                            require_once('controllers/AuthorController.php');
+                                                                            require('controllers/AuthorController.php');
                                                                             $controller = new AuthorController();
                                                                             $controller->create();
                                                                             break;
                                                          case 'edit':
-                                                                            require_once('controllers/AuthorController.php');
+                                                                            require('controllers/AuthorController.php');
                                                                             $controller = new AuthorController();
                                                                             $controller->edit();
                                                                             break;
                                                          case 'delete':
-                                                                            require_once('controllers/AuthorController.php');
+                                                                            require('controllers/AuthorController.php');
                                                                             $controller = new AuthorController();
                                                                             $controller->delete();
                                                                             break;

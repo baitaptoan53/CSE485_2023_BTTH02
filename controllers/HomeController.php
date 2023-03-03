@@ -1,6 +1,6 @@
 <?php
-// require ("../services/CategoryService.php");
-// require ("../services/AuthorService.php");
+// require ("services/CategoryService.php");
+// require ("services/AuthorService.php");
 class HomeController {
                    public function index()
                    {
@@ -11,4 +11,3 @@ class HomeController {
                                       require('views/home/index.php');
                    }
 }
-?>

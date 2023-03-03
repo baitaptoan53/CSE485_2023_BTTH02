@@ -1,8 +1,8 @@
 <?php
-require_once ("../configs/BDConnection.php");
-require ("../models/Author.php");
+require_once ("configs/BDConnection.php");
+require ("models/Author.php");
 class AuthorService{
-                   public function getAllAuthor()
+                   public function getAllAuthor(): array
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -15,7 +15,7 @@ class AuthorService{
                                       }
                                       return $authors;
                    }
-                   public function createAuthor($ma_tgia, $ten_tgia)
+                   public function createAuthor($ma_tgia, $ten_tgia): void
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -25,7 +25,7 @@ class AuthorService{
                                       $stmt->bindParam(':ten_tgia', $ten_tgia);
                                       $stmt->execute();
                    }
-                   public function deleteAuthor($ma_tgia)
+                   public function deleteAuthor($ma_tgia): void
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -34,7 +34,7 @@ class AuthorService{
                                       $stmt->bindParam(':ma_tgia', $ma_tgia);
                                       $stmt->execute();
                    }
-                   public function editAuthor($ma_tgia, $ten_tgia,$hinh_tgia)
+                   public function editAuthor($ma_tgia, $ten_tgia,$hinh_tgia): void
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -46,4 +46,3 @@ class AuthorService{
                                       $stmt->execute();
                    }
 }
-?>
