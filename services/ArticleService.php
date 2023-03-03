@@ -144,8 +144,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $allService->delAutoPrimaryKey('baiviet','ma_bviet');
     }
 }
-if(isset($_GET['ma_bviet'])){
-    $ma_bviet = $_GET['ma_bviet'];
-    $article->delete($ma_bviet);
+if(isset($_GET['action'])){
+    $deleteAction = $_GET['action'];
+    if($deleteAction=='delete'){
+        $ma_bviet = $_GET['ma_bviet'];
+        $article->delete($ma_bviet);
+    }
 }
 ?>

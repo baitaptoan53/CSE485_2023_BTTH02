@@ -14,7 +14,6 @@
         }
         public function delete(){
             require_once('./services/ArticleService.php');
-            require_once('./views/article/delete_article.php');
         }
     }
 ?>
