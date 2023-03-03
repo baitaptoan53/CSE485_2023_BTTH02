@@ -1,5 +1,5 @@
 <?php
-require_once("configs/BDConnection.php");
+require_once("configs/DBConnection.php");
 require("models/Author.php");
 class AuthorService
 {
