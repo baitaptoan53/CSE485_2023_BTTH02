@@ -15,17 +15,21 @@
                         <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href="./index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="category.php">Thể loại</a>
+                        <a class="nav-link " href="./index.php?controller=homeAdmin">Tổng quan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="author.php">Tác giả</a>
+                        <a class="nav-link " href="./index.php?controller=category">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>
+                        <a class="nav-link" href="./index.php?controller=author">Tác giả</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.php?controller=article">Bài viết</a>
                     </li>
                 </ul>
     </nav>
+    <!-- active fw-bold -->
 </header>
