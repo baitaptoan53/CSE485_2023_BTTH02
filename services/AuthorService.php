@@ -37,7 +37,7 @@ class AuthorService
                                       $stmt->bindParam(':ma_tgia', $ma_tgia);
                                       $stmt->execute();
                    }
-                   public function editAuthor($ma_tgia, $ten_tgia, $hinh_tgia)
+                   public function editAuthor($ma_tgia)
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();

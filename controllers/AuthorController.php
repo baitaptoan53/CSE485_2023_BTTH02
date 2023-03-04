@@ -15,7 +15,7 @@ class AuthorController
                    public function edit()
                    {
                                       $authorService = new AuthorService();
-                                      $author = $authorService->editAuthor($_GET['ma_tgia'], $_GET['ten_tgia'], $_GET['hinh_anh']);
+                                      $author = $authorService->editAuthor($_GET['ma_tgia']);
                                       require("./views/author/edit_author.php");
                    }
                    public function delete()
@@ -27,13 +27,13 @@ class AuthorController
                    public function store()
                    {
                                       $authorService = new AuthorService();
-                                      $author = $authorService->createAuthor($_POST['ma_tgia'], $_POST['ten_tgia'], $_POST['hinh_anh']);
+                                      $author = $authorService->createAuthor($_POST['ma_tgia'], $_POST['ten_tgia'], $_POST['hinh_tgia']);
                                       header("Location: index.php?controller=author&action=index");
                    }
                    public function update()
                    {
                                       $authorService = new AuthorService();
-                                      $author = $authorService->updateAuthor($_POST['ma_tgia'], $_POST['ten_tgia'], $_POST['hinh_anh']);
+                                      $author = $authorService->updateAuthor($_POST['ma_tgia'], $_POST['ten_tgia'], $_POST['hinh_tgia']);
                                       header("Location: index.php?controller=author&action=index");
                    }
 }

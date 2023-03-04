@@ -15,7 +15,7 @@ class CategoryController
                    public function edit()
                    {
                                       $categoryService = new CategoryService();
-                                      $category = $categoryService->editCategory($_GET['ma_tloai'], $_GET['ten_tloai']);
+                                      $category = $categoryService->editCategory($_GET['ma_tloai']);
                                       require("views/category/edit_category.php");
                    }
                    public function delete()
@@ -33,7 +33,7 @@ class CategoryController
                    public function update()
                    {
                                       $categoryService = new CategoryService();
-                                      $category = $categoryService->updateCategory($_POST['ma_tloai'], $_POST['ten_loai']);
+                                      $category = $categoryService->updateCategory($_POST['ma_tloai'], $_POST['ten_tloai']);
                                       header("Location: index.php?controller=category&action=index");
                    }
 }

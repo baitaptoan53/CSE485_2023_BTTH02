@@ -36,7 +36,7 @@ class CategoryService
                                       $stmt->bindParam(':ma_tloai', $ma_tloai);
                                       $stmt->execute();
                    }
-                   public function editCategory($ma_tloai, $ten_tloai)
+                   public function editCategory($ma_tloai)
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();

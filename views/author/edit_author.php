@@ -12,59 +12,34 @@
 </head>
 
 <body>
-    <?php include_once('../layouts/header.php'); ?>
-
-    <?php
-    require_once('connection.php');
-    $id = $ten_tgia = '';
-    if (isset($_GET['id']) && isset($_GET['ten_tgia'])) {
-        $id = $_GET['id'];
-        $ten_tgia = $_GET['ten_tgia'];
-    }
-    $hinh_tgia = '';
-    if (isset($_POST['txtCatId']) && isset($_POST['txtCatName']) && isset($_POST['txtCatImg'])) {
-        $idUp = $_POST['txtCatId'];
-        $ten_tgiaUp = $_POST['txtCatName'];
-        $hinh_tgia = $_POST['txtCatImg'];
-        echo $ten_tgiaUp;
-        $sql = "UPDATE tacgia SET ten_tgia='$ten_tgiaUp', hinh_tgia='$hinh_tgia' WHERE ma_tgia='$idUp'";
-        echo $sql;
-        $stmt = mysqli_query($conn, $sql);
-        if ($stmt) {
-            header("location: author.php");
-            die();
-        } else {
-            echo "<script>alert('Xửa thất bai')</script>";
-        }
-    }
-    ?>
+    <!-- <?php include_once('../layouts/header.php'); ?> -->
     <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
-                <form action="edit_author.php" method="post">
+                <form action="?controller=author&action=update" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã tác giả</span>
-                        <input type="text" class="form-control" name="txtCatId" readonly value="<?= $id ?>">
+                        <input type="text" class="form-control" name="ma_tgia" readonly value="<?php echo $_GET['ma_tgia'] ?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên tác giả</span>
-                        <input type="text" class="form-control" name="txtCatName" value="<?= $ten_tgia ?>">
+                        <input type="text" class="form-control" name="ten_tgia" value="">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Hình ảnh</span>
-                        <input type="text" class="form-control" name="txtCatImg" value="<?= $hinh_tgia ?>">
+                        <span class="input-group-text">Hình ảnh</span>
+                        <input type="file" class="form-control" name="hinh_tgia">
                     </div>
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu lại" class="btn btn-success">
-                        <a href="category.php" class="btn btn-warning ">Quay lại</a>
+                        <a href="?controller=category" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
         </div>
     </main>
-    <?php include_once('../layouts/footer.php'); ?>
+    <!-- <?php include_once('../layouts/footer.php'); ?> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
