@@ -1,3 +1,8 @@
+
+<?php 
+require 'router.php';
+?>
+
 <!-- Routing là gì? Định tuyến/Điều hướng -->
 <!-- Phân tích xem: URL của người dùng > Muốn gì -->
 <!-- Ví dụ: Trang chủ, Quản lý bài viết hay Thêm bài viết -->
@@ -25,3 +30,4 @@ require_once($controllerPath);
 // B4. Tạo đối tượng và gọi hàm của Controller
 $myObj = new $controller();
 $myObj->$action();
+
