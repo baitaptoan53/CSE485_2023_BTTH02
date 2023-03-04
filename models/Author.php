@@ -1,4 +1,5 @@
 <?php
+
 class Author
 {
                    private $ma_tgia;
@@ -37,3 +38,5 @@ class Author
                                       return $this->hinh_tgia;
                    }
 }
+?>
+

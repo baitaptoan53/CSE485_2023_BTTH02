@@ -1,4 +1,5 @@
 <?php
+
 require_once("configs/DBConnection.php");
 require("models/Author.php");
 class AuthorService
@@ -61,3 +62,4 @@ class AuthorService
                    }
 
 }
+?>

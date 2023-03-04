@@ -1,4 +1,5 @@
 <?php
+
 require("services/AuthorService.php");
 class AuthorController
 {
@@ -37,3 +38,4 @@ class AuthorController
                                       header("Location: index.php?controller=author&action=index");
                    }
 }
+?>

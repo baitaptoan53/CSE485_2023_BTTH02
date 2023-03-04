@@ -1,5 +1,6 @@
 <?php
 
+
 class Category
 {
                    private $ma_tloai;
@@ -28,3 +29,4 @@ class Category
                                       return $this->ten_tloai;
                    }
 }
+?>

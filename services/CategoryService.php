@@ -57,3 +57,4 @@ class CategoryService
                                       $stmt->execute();
                    }
 }
+?>
