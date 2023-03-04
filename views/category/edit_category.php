@@ -10,27 +10,7 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-<?php include_once('../layouts/header.php');?>
-    <?php 
-    require_once('connection.php');
-    $id = $ten_tloai ='';
-    if(isset($_GET['id'])&&isset($_GET['ten_tloai'])){
-        $id = $_GET['id'];
-        $ten_tloai = $_GET['ten_tloai'];
-    }
-
-    if(isset($_POST['txtCatId'])&&isset($_POST['txtCatName'])){
-        $ten_tloai = $_POST['txtCatName'];
-        $sql = "UPDATE theloai SET ten_tloai =? WHERE ma_tloai =?";
-        $stmt = mysqli_prepare($conn,$sql);
-        if($stmt->execute([$ten_tloai,$id])){
-            header("location: category.php?id=$id");
-            die();
-        }else{
-            echo "<script>alert('Xửa thất bai')</script>";
-        }
-    }
-    ?>
+<?php require_once("../CSE485_2023_BTTH02/views/layout/header.php") ?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
@@ -46,7 +26,9 @@
                         <span class="input-group-text" id="lblCatName">Tên thể loại</span>
                         <input type="text" class="form-control" name="txtCatName" value = "<?=$ten_tloai?>">
                     </div>
-
+                    <div class="input-group mt-3 mb-3 d-none">
+                        <input type="text" class="form-control" name="isAction" value = "edit">
+                    </div>
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu lại" class="btn btn-success">
                         <a href="category.php" class="btn btn-warning ">Quay lại</a>
@@ -55,7 +37,7 @@
             </div>
         </div>
     </main>
-    <?php include_once('../layouts/footer.php');?>
+    <?php require_once("../CSE485_2023_BTTH02/views/layout/footer.php") ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

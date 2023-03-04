@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <title>Music for Life</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
@@ -52,13 +54,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../assets/images/slideshow/slide01.jpg" class="d-block w-100" alt="...">
+                    <img src="./assets/images/slideshow/slide01.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../assets/images/slideshow/slide02.jpg" class="d-block w-100" alt="...">
+                    <img src="./assets/images/slideshow/slide02.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../assets/images/slideshow/slide03.jpg" class="d-block w-100" alt="...">
+                    <img src="./assets/images/slideshow/slide03.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -76,27 +78,22 @@
     <main class="container-fluid mt-3">
         <h3 class="text-center text-uppercase mb-3 text-primary">TOP bài hát yêu thích</h3>
         <?php
-        $conn = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
-        if (!$conn)
-            die("Couldn't connect: " . mysqli_error($conn));
-
-        $sql = "SELECT  ma_bviet,ma_tloai,ten_bhat,ma_tgia,hinhanh FROM baiviet";
-        $result = mysqli_query($conn, $sql);
-        $html = '';
-        while ($row = mysqli_fetch_assoc($result)) {
+        foreach ($home->getHomeArticle() as $value) {
+            $img = $value['hinhanh'] ? $value['hinhanh'] : "./assets/images/author/default.jpg";
             $html .= '
-                    <div class="col-sm-3">
-                        <div class="card mb-2" style="width: 100%;">
-                            <img src="'.$row['hinhanh'].'" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">
-                                    <a href="detail.php?ma_bviet='.$row['ma_bviet'].'&ma_tgia='.$row['ma_tgia'].'&ma_tloai='.$row['ma_tloai'].'" class="text-decoration-none"> ' . $row['ten_bhat'] . '</a>
-                                </h5>
+                        <div class="col-sm-3">
+                            <div class="card mb-2" style="width: 100%;">
+                                <img src="' . $img . '" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">
+                                        <a href="index.php?controller=detail&ma_bviet=' . $value['ma_bviet'] . '&ma_tgia=' . $value['ma_tgia'] . '&ma_tloai=' . $value['ma_tloai'] . '" class="text-decoration-none"> ' . $value['ten_bhat'] . '</a>
+                                    </h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-            ';
+                ';
         }
+
         echo '<div class="row fixbr">';
         echo $html;
         echo '</div>';
@@ -112,4 +109,5 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
