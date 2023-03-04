@@ -19,57 +19,63 @@ require('controllers/AuthorController.php');
 
 $controller = isset($_GET['controller']) ?   $_GET['controller'] : 'home';
 $action     = isset($_GET['action']) ?       $_GET['action'] : 'index';
-
 switch ($controller) {
                    case 'home':
-                                      switch ($action) {
-                                                         case 'index':
-                                                                            $controller = new HomeController();
-                                                                            $controller->index();
-                                                                            break;
-                                      }
-
-                   case 'category':
-                                      switch ($action) {
-                                                         case 'index':
-                                                                            $controller = new CategoryController();
-                                                                            $controller->index();
-                                                                            break;
-                                                         case 'create':
-                                                                            $controller = new CategoryController();
-                                                                            $controller->create();
-                                                                            break;
-                                                         case 'edit':
-                                                                            $controller = new CategoryController();
-                                                                            $controller->edit();
-                                                                            break;
-                                                         case 'delete':
-                                                                            $controller = new CategoryController();
-                                                                            $controller->delete();
-                                                                            break;
-                                      }
+                                      (new HomeController())->index();
+                                      break;
                    case 'author':
                                       switch ($action) {
                                                          case 'index':
-                                                                            $controller = new AuthorController();
-                                                                            $controller->index();
+                                                                            (new AuthorController())->index();
                                                                             break;
                                                          case 'create':
-                                                                            $controller = new AuthorController();
-                                                                            $controller->create();
+                                                                            (new AuthorController())->create();
+                                                                            break;
+                                                         case 'store':
+                                                                            (new AuthorController())->store();
                                                                             break;
                                                          case 'edit':
-                                                                            $controller = new AuthorController();
-                                                                            $controller->edit();
+                                                                            (new AuthorController())->edit();
+                                                                            break;
+                                                         case 'update':
+                                                                            (new AuthorController())->update();
                                                                             break;
                                                          case 'delete':
-                                                                            $controller = new AuthorController();
-                                                                            $controller->delete();
+                                                                            (new AuthorController())->delete();
+                                                                            break;
+                                                         default:
+                                                                            echo "Nhập linh tinh gì thế";
                                                                             break;
                                       }
+                                      break;
+                   case 'category':
+                                      switch ($action) {
+                                                         case 'index':
+                                                                            (new CategoryController())->index();
+                                                                            break;
+                                                         case 'create':
+                                                                            (new CategoryController())->create();
+                                                                            break;
+                                                         case 'store':
+                                                                            (new CategoryController())->store();
+                                                                            break;
+                                                         case 'edit':
+                                                                            (new CategoryController())->edit();
+                                                                            break;
+                                                         case 'update':
+                                                                            (new CategoryController())->update();
+                                                                            break;
+                                                         case 'delete':
+                                                                            (new CategoryController())->delete();
+                                                                            break;
+                                                         default:
+                                                                            echo "Nhập linh tinh gì thế";
+                                                                            break;
+                                      }
+                                      break;
                    default:
-                                      $controller = new HomeController();
-                                      $controller->index();
+                                      echo 'Nhập controller sai rồi';
                                       break;
 }
+
 ?>

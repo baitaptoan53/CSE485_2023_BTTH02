@@ -18,13 +18,12 @@ class CategoryService
                                       }
                                       return $categories;
                    }
-                   public function createCategory($ma_tloai, $ten_tloai)
+                   public function createCategory($ma_loai, $ten_tloai)
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
-                                      $sql = "INSERT INTO theloai(ma_tloai, ten_tloai) VALUES (:ma_tloai, :ten_tloai)";
+                                      $sql = "INSERT INTO theloai(ma_tloai, ten_tloai) VALUES ('', :ten_tloai)";
                                       $stmt = $conn->prepare($sql);
-                                      $stmt->bindParam(':ma_tloai', $ma_tloai);
                                       $stmt->bindParam(':ten_tloai', $ten_tloai);
                                       $stmt->execute();
                    }
@@ -38,6 +37,16 @@ class CategoryService
                                       $stmt->execute();
                    }
                    public function editCategory($ma_tloai, $ten_tloai)
+                   {
+                                      $dbConn = new DBConnection();
+                                      $conn = $dbConn->getConnection();
+                                      $sql = "UPDATE theloai SET ten_tloai = :ten_tloai WHERE ma_tloai = :ma_tloai";
+                                      $stmt = $conn->prepare($sql);
+                                      $stmt->bindParam(':ma_tloai', $ma_tloai);
+                                      $stmt->bindParam(':ten_tloai', $ten_tloai);
+                                      $stmt->execute();
+                   }
+                   public function updateCategory($ma_tloai, $ten_tloai)
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();

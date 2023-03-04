@@ -11,11 +11,10 @@
 </head>
 
 <body>
-                   <?php include_once('../layouts/header.php'); ?>
+                   <!-- <?php include_once('../layouts/header.php'); ?> -->
                    <main class="container mt-5 mb-5">
                                       <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
-
-                                      <form action="?action=store" method="POST">
+                                      <form action="?controller=author&action=store" method="POST">
                                                          <div class="row">
                                                                             <div class="col-sm">
                                                                                                <h3 class="text-center text-uppercase fw-bold">Thêm tác giả mới</h3>
@@ -36,7 +35,7 @@
                                       </form>
 
                    </main>
-                   <?php include_once('../layouts/footer.php'); ?>
+                   <!-- <?php include_once('../layouts/footer.php'); ?> -->
 
                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

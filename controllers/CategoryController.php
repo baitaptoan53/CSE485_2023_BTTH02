@@ -1,5 +1,5 @@
 <?php
-require ('services/CategoryService.php');
+require('services/CategoryService.php');
 class CategoryController
 {
                    public function index()
@@ -15,13 +15,25 @@ class CategoryController
                    public function edit()
                    {
                                       $categoryService = new CategoryService();
-                                      $category = $categoryService->editCategory($_GET['ma_loai'], $_GET['ten_loai']);
+                                      $category = $categoryService->editCategory($_GET['ma_tloai'], $_GET['ten_tloai']);
                                       require("views/category/edit_category.php");
                    }
                    public function delete()
                    {
                                       $categoryService = new CategoryService();
-                                      $categoryService->deleteCategory($_GET['ma_loai']);
+                                      $category = $categoryService->deleteCategory($_GET['ma_tloai']);
+                                      header("Location: index.php?controller=category&action=index");
+                   }
+                   public function store()
+                   {
+                                      $categoryService = new CategoryService();
+                                      $category = $categoryService->createCategory($_POST['ma_tloai'], $_POST['ten_tloai']);
+                                      header("Location: index.php?controller=category&action=index");
+                   }
+                   public function update()
+                   {
+                                      $categoryService = new CategoryService();
+                                      $category = $categoryService->updateCategory($_POST['ma_tloai'], $_POST['ten_loai']);
                                       header("Location: index.php?controller=category&action=index");
                    }
 }

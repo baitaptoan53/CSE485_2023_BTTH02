@@ -3,7 +3,7 @@ require_once("configs/DBConnection.php");
 require("models/Author.php");
 class AuthorService
 {
-                   public function getAllAuthor(): array
+                   public function getAllAuthor()
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -18,7 +18,7 @@ class AuthorService
                                       }
                                       return $authors;
                    }
-                   public function createAuthor($ma_tgia, $ten_tgia): void
+                   public function createAuthor($ma_tgia, $ten_tgia)
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -28,7 +28,7 @@ class AuthorService
                                       $stmt->bindParam(':ten_tgia', $ten_tgia);
                                       $stmt->execute();
                    }
-                   public function deleteAuthor($ma_tgia): void
+                   public function deleteAuthor($ma_tgia)
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -37,7 +37,7 @@ class AuthorService
                                       $stmt->bindParam(':ma_tgia', $ma_tgia);
                                       $stmt->execute();
                    }
-                   public function editAuthor($ma_tgia, $ten_tgia, $hinh_tgia): void
+                   public function editAuthor($ma_tgia, $ten_tgia, $hinh_tgia)
                    {
                                       $dbConn = new DBConnection();
                                       $conn = $dbConn->getConnection();
@@ -48,4 +48,16 @@ class AuthorService
                                       $stmt->bindParam(':hinh_tgia', $hinh_tgia);
                                       $stmt->execute();
                    }
+                   public function updateAuthor($ma_tgia, $ten_tgia, $hinh_tgia)
+                   {
+                                      $dbConn = new DBConnection();
+                                      $conn = $dbConn->getConnection();
+                                      $sql = "UPDATE tacgia SET ten_tgia = :ten_tgia, hinh_tgia = :hinh_tgia WHERE ma_tgia = :ma_tgia";
+                                      $stmt = $conn->prepare($sql);
+                                      $stmt->bindParam(':ma_tgia', $ma_tgia);
+                                      $stmt->bindParam(':ten_tgia', $ten_tgia);
+                                      $stmt->bindParam(':hinh_tgia', $hinh_tgia);
+                                      $stmt->execute();
+                   }
+
 }

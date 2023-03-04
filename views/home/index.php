@@ -6,7 +6,7 @@
     </li>
     <li>
         <a href="?controller=category">
-          Ds sinh viên
+          Thể loại
         </a>
     </li>
 </ul>

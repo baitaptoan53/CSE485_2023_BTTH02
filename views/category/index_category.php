@@ -14,7 +14,7 @@
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="?action=create" class="btn btn-success">Thêm mới</a>
+                <a href="?controller=category&action=create" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -29,8 +29,8 @@
                         <tr>
                             <td><?php echo $category->getMa_tloai()?></td>
                             <td><?php echo $category->getTen_tloai()?></td>
-                            <td><a href="edit_category.php?id=<?php echo $category->getMa_tloai()?>" class="btn btn-primary">Sửa</a></td>
-                            <td><a href="delete_category.php?id=<?php echo $category->getMa_tloai()?>" class="btn btn-danger">Xóa</a></td>
+                            <td><a href="?controller=category&action=edit&ma_tloai=<?php echo $category->getMa_tloai()?>" class="btn btn-primary">Sửa</a></td>
+                            <td><a href="?controller=category&action=delete&ma_tloai=<?php echo $category->getMa_tloai()?>" class="btn btn-danger">Xóa</a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

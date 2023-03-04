@@ -13,7 +13,7 @@
     <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
-                <a href="?action=create" class="btn btn-success">Thêm mới</a>
+                <a href="?controller=author&action=create" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -30,8 +30,8 @@
                             <td><?php echo $author->getMa_tgia()?></td>
                             <td><?php echo $author->getTen_tgia()?></td>
                             <td><img src="images/<?php echo $author->getHinh_tgia()?>" alt="" width="100px"></td>
-                            <td><a href="edit_author.php?id=<?php echo $author->getMa_tgia()?>" class="btn btn-primary">Sửa</a></td>
-                            <td><a href="delete_author.php?id=<?php echo $author->getMa_tgia()?>" class="btn btn-danger">Xóa</a></td>
+                            <td><a href="?controller=author&action=edit&ma_tgia=<?php echo $author->getMa_tgia()?>" class="btn btn-primary">Sửa</a></td>
+                            <td><a href="?controller=author&action=delete&ma_tgia=<?php echo $author->getMa_tgia()?>" class="btn btn-danger">Xóa</a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
