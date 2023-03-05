@@ -22,8 +22,8 @@
 
                     <!-- Logo -->
                     <div class="auth-brand text-center text-lg-left">
-                    <a href="?controller=home" class="logo-dark">
-                        <span><img src="\CSE485_2023_BTTH02\assets\images\logo.png" alt="" height="24"></span>
+                        <a href="?controller=home" class="logo-dark">
+                            <span><img src="\CSE485_2023_BTTH02\assets\images\logo.png" alt="" height="24"></span>
                         </a>
                     </div>
 
@@ -31,15 +31,15 @@
                     <h4 class="mt-0">Đăng Nhập</h4>
                     <p class="text-muted mb-4">Nhập địa chỉ email và mật khẩu của bạn để truy cập tài khoản.</p>
                     <!-- form -->
-                    <form action="" method="post">
+                    <form action="?controller=authorization&action=login" method="POST">
                         <div class="form-group">
                             <label for="emailaddress">Email</label>
-                            <input class="form-control" type="email" id="emailaddress" required="" placeholder="Nhập email" name="email">
+                            <input class="form-control" type="email" id="emailaddress" required="" placeholder="Nhập email" name="email" >
                         </div>
                         <div class="form-group">
-                            <a href="pages-recoverpw-2.html" class="text-muted float-right"><small>Bạn quên mật khẩu ?</small></a>
+                            <a href="?controller=authorization&action=fogotpassword" class="text-muted float-right"><small>Bạn quên mật khẩu ?</small></a>
                             <label for="password">Mật khẩu</label>
-                            <input class="form-control" type="password" required="" id="password" placeholder="Nhập mật khẩu" name="password">
+                            <input class="form-control" type="password" required="" id="password" placeholder="Nhập mật khẩu" name="password" >
                         </div>
                         <div class="form-group mb-3">
                             <div class="custom-control custom-checkbox">

@@ -13,7 +13,11 @@
 </head>
 
 <body class="authentication-bg pb-0" data-layout-config='{"darkMode":false}'>
+<?php $error_email = false;
+    $error_username = false;
+    ?>
     <div class="auth-fluid">
+
         <!--Auth fluid left content -->
         <div class="auth-fluid-form-box">
             <div class="align-items-center d-flex h-100">
@@ -29,7 +33,7 @@
                     <p class="text-muted mb-4">
                         Bạn chưa có tài khoản? Tạo tài khoản của bạn, chỉ mất chưa đầy một phút</p>
                     <!-- form -->
-                    <form action="controller=authorization&action=register" method="POST">
+                    <form action="?controller=authorization&action=store" method="POST">
                         <div class="form-group">
                             <label for="fullname">Tên tài khoản</label>
                             <input class="form-control" type="text" id="usersname" name="usersname" placeholder="Nhập tên tài khoản" required>
@@ -42,8 +46,8 @@
                             ?>
                         </div>
                         <div class="form-group">
-                            <label for="emailaddress">Email</label>
-                            <input class="form-control" type="email" id="emailaddress" name="emailaddress" required placeholder="Nhập email email">
+                            <label for="email">Email</label>
+                            <input class="form-control" type="email" id="email" name="email" required placeholder="Nhập email email">
                             <?php
                             if ($error_email == true) {
                                 echo '<div class="alert alert-danger" role="alert"> Email bạn vừa nhập đã tồn tại!</div>';
@@ -87,7 +91,7 @@
 
                     <!-- Footer-->
                     <footer class="footer footer-alt">
-                        <p class="text-muted">Bạn đã có tài khoản? <a href="?controller=authorization" class="text-muted ml-1"><b>Đăng nhập</b></a></p>
+                        <p class="text-muted">Bạn đã có tài khoản? <a href="?controller=authorization&action=index" class="text-muted ml-1"><b>Đăng nhập</b></a></p>
                     </footer>
 
                 </div> <!-- end .card-body -->
