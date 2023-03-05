@@ -27,6 +27,5 @@ require_once($controllerPath);
 $myObj = new $controller();
 
 $myObj->$action();
-=======
 $myObj->$action();
 ?>
