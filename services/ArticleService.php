@@ -90,6 +90,7 @@ class ArticleService
         }
     }
 }
+$article = new ArticleService();
 
 $ma_bviet = $ma_tloai = $ma_tgia = '';
 if (isset($_GET['ma_bviet']) && isset($_GET['ma_tloai']) && isset($_GET['ma_tgia'])) {
@@ -98,7 +99,6 @@ if (isset($_GET['ma_bviet']) && isset($_GET['ma_tloai']) && isset($_GET['ma_tgia
     $ma_tgia = $_GET['ma_tgia'];
 }
 
-$article = new ArticleService();
 $arrayArticle = [];
 foreach ($article->getAllArticle('single', 'ma_bviet', $ma_bviet) as $value) {
     $arrayArticle = [
