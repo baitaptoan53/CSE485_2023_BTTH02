@@ -18,20 +18,18 @@ class AuthorizationService
                                 $statement = $conn->query($sql); // Execute
                                 $statement->setFetchMode(PDO::FETCH_OBJ); // Fetch mode
                                 $member = $statement->fetch();
-                                if ($member->level == 1) {
-                                        if (password_verify($password, $member->password)) {
+                                if (password_verify($password, $member->password)) {
+                                        if ($member->level == 1) {
                                                 header("Location: ?controller=homeAdmin");
-                                        } else {
-
-                                                echo "<script>alert('Đăng nhập thất bại')</script>";
                                         }
-                                }
-                                if ($member->level == 0) {
-                                        if (password_verify($password, $member->password)) {
+                                        if ($member->level == 0) {
                                                 header("Location: ?controller=home");
-                                        } else {
-                                                echo "<script>alert('Đăng nhập thất bại')</script>";
                                         }
+                                } else {
+                                        echo "<script>
+                                        alert('Sai tài khoản hoặc mật khẩu');
+                                        window.location.href='?controller=authorization&action=index';
+                                        </script>";
                                 }
                         }
                 }
@@ -49,23 +47,25 @@ class AuthorizationService
                         $sql = "SELECT * FROM users WHERE email = '$email'";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
-                        $count = $stmt->rowCount();
-                        if ($count > 0) {
-                                header("Location: ?controller=authorization&action=register");
+                        $count_email = $stmt->rowCount();
+                        if ($count_email > 0) {
                                 $error = true;
-                                $error_email = true;
-                                echo "<script>alert('Email đã tồn tại')</script>";
+                                echo "<script>
+                                        alert('Email đã tồn tại');
+                                        window.location.href='?controller=authorization&action=register';
+                                        </script>";
                         }
                         // kiểm tra tên tài khoản đã tồn tại chưa
                         $sql = "SELECT * FROM users WHERE usersname = '$usersname'";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
-                        $count = $stmt->rowCount();
-                        if ($count > 0) {
-                                header("Location: ?controller=authorization&action=register");
+                        $count_usersname = $stmt->rowCount();
+                        if ($count_usersname > 0) {
                                 $error = true;
-                                $error_username = true;
-                                echo "<script>alert('Tên tài khoản đã tồn tại')</script>";
+                                echo "<script>
+                                        alert('Tên tài khoản đã tồn tại');
+                                        window.location.href='?controller=authorization&action=register';
+                                        </script>";
                         }
                         if ($error == false) {
                                 $password = password_hash($password, PASSWORD_DEFAULT);

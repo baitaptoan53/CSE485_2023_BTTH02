@@ -13,9 +13,7 @@
 </head>
 
 <body class="authentication-bg pb-0" data-layout-config='{"darkMode":false}'>
-<?php $error_email = false;
-    $error_username = false;
-    ?>
+
     <div class="auth-fluid">
 
         <!--Auth fluid left content -->
@@ -37,22 +35,12 @@
                         <div class="form-group">
                             <label for="fullname">Tên tài khoản</label>
                             <input class="form-control" type="text" id="usersname" name="usersname" placeholder="Nhập tên tài khoản" required>
-                            <?php
-                            if ($error_username == true) {
-                                echo '<div class="alert alert-danger" role="alert">
-                                 Tên tài khoản bạn vừa nhập đã tồn tại!
-                               </div>';
-                            }
-                            ?>
+
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input class="form-control" type="email" id="email" name="email" required placeholder="Nhập email email">
-                            <?php
-                            if ($error_email == true) {
-                                echo '<div class="alert alert-danger" role="alert"> Email bạn vừa nhập đã tồn tại!</div>';
-                            }
-                            ?>
+
                         </div>
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
