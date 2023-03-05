@@ -32,6 +32,22 @@
             $stmt = $conn->prepare($sql);
             $stmt->execute();
         }
+        public function count($type = 'multi',$nameTable=null,$columnName = null , $condition = null){
+            $dbcon = new DBConnection();
+            $conn = $dbcon->getConnection();
+    
+            $sql = "";
+            if ($type == 'multi'){
+                $sql = "SELECT * FROM $nameTable";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+            }elseif($type == 'single' && $columnName != null){
+                $sql = "SELECT * FROM $nameTable WHERE $columnName =?";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$condition]);
+            }
+            return $stmt->rowCount();
+        }
     }
     $allService = new AllService();
 ?>
